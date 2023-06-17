@@ -1,4 +1,4 @@
-from tinydb import TinyDB,Document
+from tinydb import TinyDB
 from tinydb.table import Document
 db = TinyDB("../db.json", indent=4)
 
