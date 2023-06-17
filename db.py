@@ -1,6 +1,6 @@
 from tinydb import TinyDB,Document
 from tinydb.table import Document
-db = TinyDB("user-management-api/db.json", indent=4)
+db = TinyDB("../db.json", indent=4)
 
 
 class DB:
