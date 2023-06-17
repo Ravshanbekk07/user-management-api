@@ -17,7 +17,7 @@ def get_by_id(chat_id):
 @app.route('/users/',methods = ["POST"])
 def create_user():
     data = request.get_json()
-    db.create_user(data['first_name'],data['last_name'],data['username'])
+    db.create_user(data['first_name'],data['last_name'],data['username'],data['chat_id'])
     return jsonify({'message':'new user was created'})
 
 @app.route('/users/<int:chat_id>', methods = ["PUT"])

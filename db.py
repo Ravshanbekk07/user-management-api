@@ -1,5 +1,5 @@
-from tinydb import TinyDB
-
+from tinydb import TinyDB,Document
+from tinydb.table import Document
 db = TinyDB("user-management-api/db.json", indent=4)
 
 
@@ -13,10 +13,9 @@ class DB:
     def get_user_by_id(self, chat_id):
         return self.users.get(doc_id=chat_id)
 
-    def create_user(self, first_name: str, last_name: str, username: str):
-        return self.users.insert(
-            {"firstname": first_name, "lastname": last_name, "username": username}
-        )
+    def create_user(self, first_name: str, last_name: str, username: str,chat_id:int):
+        user = Document({"firstname": first_name, "lastname": last_name, "username": username},doc_id=chat_id)
+        return self.users.insert(user)
 
     def update(self, chat_id, first_name: str, last_name: str, username: str):
         return self.users.update(
