@@ -5,5 +5,20 @@ from telegram.ext import (
 from call_back_fu import (start)
 
 TOKEN = os.environ.get('TOKEN')
-update = Updater(token=TOKEN)
-dispatcher = update.dispatcher()
+def main():
+    updater = Updater(token=TOKEN)
+    dispatcher = updater.dispatcher()
+    dispatcher.add_handler(handler=Commandhandler('start', start))
+   
+
+
+
+
+
+
+
+    updater.start_polling()
+    updater.idle()
+
+
+main()
